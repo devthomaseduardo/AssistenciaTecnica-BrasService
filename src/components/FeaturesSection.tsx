@@ -9,6 +9,7 @@ import {
   FaSprayCan,
   FaWarehouse
 } from 'react-icons/fa'
+import { getWhatsAppLink } from '../lib/utils'
 
 // Tipo de serviço
 interface Service {
@@ -79,14 +80,6 @@ const services: Service[] = [
 ]
 
 export const FeaturesSection: React.FC = () => {
-  const whatsappNumber = '5519991195261' // número com DDI e DDD
-
-  // ✅ Função com o link completo da API do WhatsApp
-  const handleWhatsAppClick = (message: string) => {
-    const encodedMessage = encodeURIComponent(message)
-    const whatsappApiLink = `https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${encodedMessage}&type=phone_number&app_absent=0`
-    window.open(whatsappApiLink, '_blank')
-  }
 
   return (
     <section
@@ -131,12 +124,14 @@ export const FeaturesSection: React.FC = () => {
               </div>
 
               {/* Botão WhatsApp */}
-              <button
-                onClick={() => handleWhatsAppClick(service.message)}
-                className='mt-auto w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-md hover:scale-105 transition'
+              <a
+                href={getWhatsAppLink(service.message)}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='mt-auto w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-md hover:scale-105 transition whitespace-nowrap'
               >
                 <FaWhatsapp className='text-lg' /> {service.buttonText}
-              </button>
+              </a>
             </div>
           ))}
         </div>

@@ -7,26 +7,11 @@ import {
   FaArrowUp
 } from 'react-icons/fa'
 import brasserviceLogo from '../assets/brasservice.png'
+import { getWhatsAppLink } from '../lib/utils'
 
 export const Footer: React.FC = () => {
-  const whatsappNumber = '5519991195261' // Ajustei o número aqui para consistência
   const instagramUrl = 'https://www.instagram.com/bras_service/' // Exemplo
   const emailAddress = 'bras-service@hotmail.com'
-
-  const handleWhatsAppClick = () => {
-    const message = encodeURIComponent(
-      'Olá! Gostaria de mais informações sobre os serviços da Bras Service.'
-    )
-    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank')
-  }
-
-  const handleInstagramClick = () => {
-    window.open(instagramUrl, '_blank', 'noopener,noreferrer')
-  }
-
-  const handleEmailClick = () => {
-    window.open(`mailto:${emailAddress}`, '_self')
-  }
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -43,8 +28,8 @@ export const Footer: React.FC = () => {
             className='h-14 w-auto'
           />
           <p className='text-gray-400 text-sm max-w-sm'>
-            Especialistas em conserto de geladeiras, atendendo Campinas e região
-            com rapidez e garantia.
+             Especialistas em conserto de geladeiras, atendendo Campinas e região
+             com rapidez e garantia.
           </p>
         </div>
 
@@ -53,20 +38,22 @@ export const Footer: React.FC = () => {
           <h4 className='text-white text-lg font-bold'>Contato</h4>
           <ul className='text-gray-400 text-sm space-y-2'>
             <li>
-              <button
-                onClick={handleWhatsAppClick}
-                className='flex items-center gap-2 hover:text-green-500 transition'
+              <a
+                href={getWhatsAppLink('Olá! Gostaria de agendar uma visita técnica ou tirar uma dúvida.')}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='flex items-center gap-2 hover:text-green-500 transition whitespace-nowrap'
               >
-                <FaWhatsapp /> {whatsappNumber}
-              </button>
+                <FaWhatsapp /> (19) 99119-5261
+              </a>
             </li>
             <li>
-              <button
-                onClick={handleEmailClick}
-                className='flex items-center gap-2 hover:text-white transition'
+              <a
+                href={`mailto:${emailAddress}`}
+                className='flex items-center gap-2 hover:text-white transition whitespace-nowrap'
               >
                 <FaEnvelope /> {emailAddress}
-              </button>
+              </a>
             </li>
             <li>
               <a

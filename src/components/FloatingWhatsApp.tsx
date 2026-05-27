@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaWhatsapp } from 'react-icons/fa'
+import { getWhatsAppLink } from '../lib/utils'
 
 const FloatingWhatsApp: React.FC = () => {
-  const whatsappNumber = '5519991195261' // número com DDI + DDD (sem espaços)
   const [isVisible, setIsVisible] = useState(false)
 
   // Controle de visibilidade com base no scroll
@@ -13,24 +13,13 @@ const FloatingWhatsApp: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Mensagem padrão da campanha (pode ser alterada dinamicamente)
-  const defaultMessage =
-    'Olá! Gostaria de mais informações sobre os serviços da Bras Service.'
-
-  // Função para abrir o WhatsApp com mensagem personalizada
-  const handleClick = (message: string = defaultMessage) => {
-    const encodedMessage = encodeURIComponent(message)
-    window.open(
-      `https://wa.me/${whatsappNumber}?text=${encodedMessage}`,
-      '_blank'
-    )
-  }
-
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.button
-          onClick={() => handleClick()}
+        <motion.a
+          href={getWhatsAppLink('Olá! Gostaria de solicitar um orçamento para o meu eletrodoméstico.')}
+          target='_blank'
+          rel='noopener noreferrer'
           initial={{ scale: 0, opacity: 0 }}
           animate={{
             scale: [0, 1, 1.05, 1],
@@ -65,7 +54,7 @@ const FloatingWhatsApp: React.FC = () => {
           }}
         >
           <FaWhatsapp className='w-8 h-8 md:w-9 md:h-9 text-white' />
-        </motion.button>
+        </motion.a>
       )}
     </AnimatePresence>
   )

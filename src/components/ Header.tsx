@@ -20,14 +20,7 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Função genérica para enviar mensagens diferentes
-  const handleWhatsAppClick = (customMessage?: string) => {
-    const baseMessage =
-      customMessage || 'Olá! Gostaria de agendar um atendimento técnico.'
-    const message = encodeURIComponent(baseMessage)
-    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`
-    window.open(whatsappLink, '_blank')
-  }
+
 
   // Itens do menu principal
   const menuItems = [
@@ -109,9 +102,11 @@ export const Header: React.FC = () => {
           {/* Botões e Menu Mobile */}
           <div className='flex items-center space-x-4'>
             {/* Botão principal do WhatsApp (Desktop) */}
-            <motion.button
-              onClick={() => handleWhatsAppClick()}
-              className='hidden md:flex items-center px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105'
+            <motion.a
+              href='https://wa.me/5519991195261?text=Olá%2C minha geladeira não gela na parte de baixo. Poderiam agendar uma visita técnica%3F'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='hidden md:flex items-center px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 whitespace-nowrap'
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -120,7 +115,7 @@ export const Header: React.FC = () => {
             >
               <i className='hgi-stroke hgi-whatsapp mr-2'></i>
               WhatsApp
-            </motion.button>
+            </motion.a>
 
             {/* Botão de menu mobile */}
             <motion.button
@@ -170,9 +165,11 @@ export const Header: React.FC = () => {
               ))}
 
               {/* Botão WhatsApp padrão */}
-              <motion.button
-                onClick={() => handleWhatsAppClick()}
-                className='flex items-center justify-center w-full px-4 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-300 mt-4'
+              <motion.a
+                href='https://wa.me/5519991195261?text=Olá%2C minha geladeira não gela na parte de baixo. Poderiam agendar uma visita técnica%3F'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='flex items-center justify-center w-full px-4 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-300 mt-4 whitespace-nowrap'
                 initial={{ opacity: 0, y: 20 }}
                 animate={{
                   opacity: isMenuOpen ? 1 : 0,
@@ -182,16 +179,14 @@ export const Header: React.FC = () => {
               >
                 <i className='hgi-stroke hgi-whatsapp mr-2'></i>
                 Falar no WhatsApp
-              </motion.button>
+              </motion.a>
 
               {/* Botão de Campanha Preventiva */}
-              <motion.button
-                onClick={() =>
-                  handleWhatsAppClick(
-                    'Olá! Vim pela campanha de manutenção preventiva.'
-                  )
-                }
-                className='flex items-center justify-center w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300'
+              <motion.a
+                href='https://wa.me/5519991195261?text=Olá%2C minha geladeira não gela na parte de baixo. Poderiam agendar uma visita técnica%3F'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='flex items-center justify-center w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300 whitespace-nowrap'
                 initial={{ opacity: 0, y: 20 }}
                 animate={{
                   opacity: isMenuOpen ? 1 : 0,
@@ -201,16 +196,14 @@ export const Header: React.FC = () => {
               >
                 <i className='hgi-stroke hgi-tools mr-2'></i>
                 Campanha Preventiva
-              </motion.button>
+              </motion.a>
 
               {/* Botão de Suporte Urgente */}
-              <motion.button
-                onClick={() =>
-                  handleWhatsAppClick(
-                    'Olá! Preciso de suporte urgente com meu equipamento.'
-                  )
-                }
-                className='flex items-center justify-center w-full px-4 py-3 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition-colors duration-300'
+              <motion.a
+                href='https://wa.me/5519991195261?text=Olá%2C minha geladeira não gela na parte de baixo. Poderiam agendar uma visita técnica%3F'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='flex items-center justify-center w-full px-4 py-3 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition-colors duration-300 whitespace-nowrap'
                 initial={{ opacity: 0, y: 20 }}
                 animate={{
                   opacity: isMenuOpen ? 1 : 0,
@@ -220,7 +213,7 @@ export const Header: React.FC = () => {
               >
                 <i className='hgi-stroke hgi-alert mr-2'></i>
                 Suporte Urgente
-              </motion.button>
+              </motion.a>
             </nav>
           </div>
         </motion.div>

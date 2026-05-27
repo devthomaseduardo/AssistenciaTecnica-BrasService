@@ -77,8 +77,6 @@ const problems = [
 ] as const
 
 export default function ProblemsSection () {
-  const whatsappNumber = '5519991195261'
-
   const getUrgencyColor = (urgency: string) => {
     switch (urgency) {
       case 'Alta':
@@ -149,14 +147,12 @@ export default function ProblemsSection () {
                     </div>
 
                     <a
-                      href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                        problem.whatsappMessage
-                      )}`}
+                      href='https://wa.me/5519991195261?text=Olá%2C minha geladeira não gela na parte de baixo. Poderiam agendar uma visita técnica%3F'
                       target='_blank'
                       rel='noopener noreferrer'
-                      className='w-full bg-blue-600 text-white font-bold px-6 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 mt-4'
+                      className='w-full bg-blue-600 text-white font-bold px-6 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 mt-4 whitespace-nowrap'
                     >
-                      <FaWhatsapp className='w-5 h-5' />
+                      <FaWhatsapp className='w-5 h-5 flex-shrink-0' />
                       Falar no WhatsApp
                     </a>
                   </div>
@@ -175,14 +171,12 @@ export default function ProblemsSection () {
             Clique abaixo e agende a visita de um técnico agora.
           </p>
           <a
-            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-              'Olá! Gostaria de agendar uma visita técnica para resolver um problema na minha geladeira.'
-            )}`}
+            href='https://wa.me/5519991195261?text=Olá%2C minha geladeira não gela na parte de baixo. Poderiam agendar uma visita técnica%3F'
             target='_blank'
             rel='noopener noreferrer'
-            className='inline-flex items-center justify-center gap-3 px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-bold rounded-2xl shadow-lg transition-all duration-300'
+            className='inline-flex items-center justify-center gap-3 px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-bold rounded-2xl shadow-lg transition-all duration-300 whitespace-nowrap'
           >
-            <FaWhatsapp className='w-6 h-6' />
+            <FaWhatsapp className='w-6 h-6 flex-shrink-0' />
             Falar no WhatsApp
           </a>
         </div>

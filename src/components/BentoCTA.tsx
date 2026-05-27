@@ -9,28 +9,23 @@ const BentoCTA: React.FC = () => {
   const fullStars = Math.floor(rating)
   const hasHalf = rating % 1 >= 0.5
   const emptyStars = 5 - fullStars - (hasHalf ? 1 : 0)
-  const whatsappNumber = '5519991195261'
 
   return (
     <section className='relative py-24 text-white overflow-hidden'>
       {/* Fundo com gradiente branco */}
-      <div className='absolute inset-0 -z-10 h-full w-full [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#fff_100%)]'></div>
+      <div className='absolute inset-0 -z-10 h-full w-full [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#e5e7eb_100%)]'></div>
 
-      {/* Conteúdo Principal */}
-      <div className='max-w-7xl mx-auto px-6 relative z-30'>
-        {/* Header */}
+      <div className='max-w-7xl mx-auto px-4 relative z-20'>
         <div className='text-center mb-16'>
-          <h2 className='text-4xl md:text-6xl font-bold text-black leading-tight'>
-            Atendimento que transforma
+          <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-6'>
+            Pronto para resolver seu problema?
           </h2>
-          <p className='mt-6 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
-            Mais de 2.000 clientes já transformaram seus negócios conosco.
-            <br />
-            Peça seu orçamento e descubra por que somos referência no mercado.
+          <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+            Três formas rápidas e seguras de falar com a nossa assistência
+            técnica.
           </p>
         </div>
 
-        {/* Bento Grid com cards reordenados */}
         <div className='grid lg:grid-cols-3 gap-6'>
           {/* Card Orçamento (Primeiro) */}
           <div className='group relative'>
@@ -57,12 +52,10 @@ const BentoCTA: React.FC = () => {
               </div>
 
               <a
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                  'Olá, gostaria de um orçamento sem compromisso.'
-                )}`}
+                href='https://wa.me/5519991195261?text=Olá%2C minha geladeira não gela na parte de baixo. Poderiam agendar uma visita técnica%3F'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='w-full bg-blue-600 text-white font-bold px-6 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2'
+                className='w-full bg-blue-600 text-white font-bold px-6 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap'
               >
                 <FaWhatsapp className='w-4 h-4' />
                 Falar Agora no WhatsApp
@@ -126,12 +119,10 @@ const BentoCTA: React.FC = () => {
 
               {/* Botão de WhatsApp no card do Google */}
               <a
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                  'Olá, vi a excelente avaliação de vocês no Google e gostaria de um orçamento.'
-                )}`}
+                href='https://wa.me/5519991195261?text=Olá%2C minha geladeira não gela na parte de baixo. Poderiam agendar uma visita técnica%3F'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='w-full bg-blue-600 text-white font-bold px-6 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2'
+                className='w-full bg-blue-600 text-white font-bold px-6 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap'
               >
                 <FaWhatsapp className='w-4 h-4' />
                 Pedir Orçamento agora
@@ -185,12 +176,10 @@ const BentoCTA: React.FC = () => {
               </div>
 
               <a
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                  'Olá, gostaria de falar com um especialista agora.'
-                )}`}
+                href='https://wa.me/5519991195261?text=Olá%2C minha geladeira não gela na parte de baixo. Poderiam agendar uma visita técnica%3F'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='w-full bg-blue-600 text-white font-bold px-6 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2'
+                className='w-full bg-blue-600 text-white font-bold px-6 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap'
               >
                 <FaWhatsapp className='w-4 h-4' />
                 Falar no WhatsApp

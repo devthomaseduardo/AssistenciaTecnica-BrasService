@@ -3,16 +3,11 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { FaWhatsapp } from 'react-icons/fa'
+import { getWhatsAppLink } from '../lib/utils'
 
 // Assets
 import logo from '../assets/brasservice.png'
 import geladeiraVideo from '../assets/geladeira.mp4'
-
-const WHATSAPP_CONFIG = {
-  number: '5519991195261',
-  message:
-    'Olá! Gostaria de agendar um conserto. Vi no site que vocês resolvem rápido.'
-}
 
 const ANIMATION_CONFIG = {
   duration: 0.9,
@@ -30,7 +25,6 @@ export const HeroSection: React.FC = () => {
   const prefersReducedMotion = useReducedMotion()
 
   const [videoLoaded, setVideoLoaded] = useState(false)
-  const [isHovering, setIsHovering] = useState(false)
 
   // Autoplay seguro do vídeo (com fallback silencioso)
   useEffect(() => {
@@ -137,16 +131,11 @@ export const HeroSection: React.FC = () => {
               Atendimento rápido, com garantia e confiança.
             </motion.p>
 
-            {/* Botão CTA */}
             <motion.a
-              href={`https://wa.me/${
-                WHATSAPP_CONFIG.number
-              }?text=${encodeURIComponent(WHATSAPP_CONFIG.message)}`}
+              href={getWhatsAppLink('Olá! Gostaria de agendar uma visita técnica para avaliar minha geladeira ou eletrodoméstico.')}
               target='_blank'
               rel='noopener noreferrer'
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-              className='group relative mt-8 flex items-center justify-center gap-2 px-8 py-4 bg-green-600 hover:bg-green-700 text-white text-lg sm:text-xl font-bold rounded-2xl shadow-2xl transition-all duration-300 w-full max-w-sm sm:max-w-md overflow-hidden'
+              className='group relative mt-8 flex items-center justify-center gap-2 px-8 py-4 bg-green-600 hover:bg-green-700 text-white text-lg sm:text-xl font-bold rounded-2xl shadow-2xl transition-all duration-300 w-full max-w-sm sm:max-w-md overflow-hidden whitespace-nowrap'
               initial={{ opacity: 0, scale: 0.9 }}
               animate={getAnimationProps(
                 isInView

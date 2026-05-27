@@ -237,18 +237,8 @@ const faqs: FaqItem[] = [
 
 export default function FAQSection () {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
-  const whatsappNumber = '5519991195261'
-  const phoneCallNumber = '5519991195261'
-
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
-  }
-
-  const handleWhatsAppClick = () => {
-    const message = encodeURIComponent(
-      'Olá! Gostaria de agendar uma visita para um serviço de refrigeração.'
-    )
-    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank')
   }
 
   return (
@@ -394,9 +384,7 @@ export default function FAQSection () {
 
                 <div className='flex flex-col sm:flex-row gap-4 sm:gap-3'>
                   <a
-                    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                      'Olá! Gostaria de agendar uma visita para um serviço de refrigeração.'
-                    )}`}
+                    href='https://wa.me/5519991195261?text=Olá%2C minha geladeira não gela na parte de baixo. Poderiam agendar uma visita técnica%3F'
                     target='_blank'
                     rel='noopener noreferrer'
                     className='flex-1 w-full bg-green-500 hover:bg-green-600 text-white font-bold px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 rounded-xl md:rounded-2xl shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 text-base sm:text-lg md:text-xl group transform hover:scale-105 whitespace-nowrap'
@@ -411,11 +399,13 @@ export default function FAQSection () {
                     <span className='text-center'>Agendar Visita</span>
                   </a>
                   <a
-                    href={`tel:${phoneCallNumber}`}
+                    href='https://wa.me/5519991195261?text=Olá%2C minha geladeira não gela na parte de baixo. Poderiam agendar uma visita técnica%3F'
+                    target='_blank'
+                    rel='noopener noreferrer'
                     className='flex-1 w-full bg-white/20 hover:bg-white/30 text-white font-bold px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 rounded-xl md:rounded-2xl shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 text-base sm:text-lg md:text-xl transform hover:scale-105 whitespace-nowrap'
                   >
                     <Phone className='w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 flex-shrink-0' />
-                    <span className='text-center'>Ligar Agora</span>
+                    <span className='text-center'>Falar com Técnico</span>
                   </a>
                 </div>
               </div>
